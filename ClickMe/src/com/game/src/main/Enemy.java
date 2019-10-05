@@ -3,60 +3,60 @@ package com.game.src.main;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Random;
+
 
 import javax.imageio.ImageIO;
 
-public class Enemy {
-	
-	private double x, y;
-	public static final int BOUND = 45;
-	
-	Random r = new Random();
-	private int speedX , speedY;
-	
-	private BufferedImage img;
-	
-	Game game;
-	
-	
-	public Enemy(double x, double y, Game game) {
-		this.x = x;
-		this.y = y;
-		this.game = game;
-		
-		try {
-			img = ImageIO.read(getClass().getResource("/zergling.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+class Enemy {
 
-	public void tick() {
-		
-	}
-	
-	public void render(Graphics g) {
-		g.drawImage(img, (int)x, (int)y, null);
+    private double x, y;
+    static final int BOUND = 100;
+
+
+    private int speedX , speedY;
+
+    private BufferedImage img;
+
+    private com.game.src.main.Game game;
+
+
+    Enemy(double x, double y, com.game.src.main.Game game) {
+        this.x = x;
+        this.y = y;
+        this.game = game;
+
+        try {
+            img = ImageIO.read(getClass().getResource("/boss.png"));
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    void tick() {
+
+    }
+
+    void render(Graphics g) {
+        g.drawImage(img, (int)x, (int)y, null);
 //		System.out.println("X = " + x + " Y = " + y);
-	}
+    }
 
-	public double getX() {
-		return x;
-	}
+    double getX() {
+        return x;
+    }
 
-	public void setX(double x) {
-		this.x = x;
-	}
+    void setX(double x) {
+        this.x = x;
+    }
 
-	public double getY() {
-		return y;
-	}
+    double getY() {
+        return y;
+    }
 
-	public void setY(double y) {
-		this.y = y;
-	}
-	
-	
+    void setY(double y) {
+        this.y = y;
+    }
+
+
 }
